@@ -4,18 +4,17 @@ class QuizBrain {
   int _questionNumber = 0;
 
   List<Question> _questionBank = [
-    Question(q: 'Dakar est la capital du Sénégal.', a: true),
-    Question(q: 'Macky Sall est le president du Senegal.', a: true),
-    Question(q: 'Le meilleur butteur de la CAN est Sadio Mané.', a: false),
-    Question(q: 'Adonis est un framework nodejs..', a: true),
-    Question(q: 'Nestjs est le framework nodejs le plus rapide.', a: true),
-    Question(q: 'Laravel est le framework PHP le plus populaire.', a: true),
-    Question(q: 'Géant des flandres une race de mouton.', a: false),
-    Question(q: 'Iphone x prend deux cartes SIM.', a: false),
-    Question(q: 'L\'eau bout à 10 degrès.', a: false),
+    Question('Dakar est la capital du Sénégal.', true),
+    Question('Macky Sall est le president du Senegal.', true),
+    Question('Le meilleur butteur de la CAN est Sadio Mané.', false),
+    Question('Adonis est un framework nodejs..', true),
+    Question('Nestjs est le framework nodejs le plus rapide.', true),
+    Question('Laravel est le framework PHP le plus populaire.', true),
+    Question('Géant des flandres une race de mouton.', false),
+    Question('Iphone x prend deux cartes SIM.', false),
+    Question('L\'eau bout à 10 degrès.', false),
     Question(
-        q: 'Alioune Sall a remboursser la population leur 400.000 fcfa.',
-        a: false),
+        'Alioune Sall a remboursser la population leur 400.000 fcfa.', false),
   ];
 
   void nextQuestion() {
@@ -30,5 +29,18 @@ class QuizBrain {
 
   bool getCorrectAnswer() {
     return _questionBank[_questionNumber].questionAnswer;
+  }
+
+  bool isFinished() {
+    if (_questionNumber >= _questionBank.length - 1) {
+      print('returning true');
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void resetScore() {
+    _questionNumber = 0;
   }
 }
